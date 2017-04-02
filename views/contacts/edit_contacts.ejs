@@ -1,0 +1,67 @@
+<%- include ../common/formheader.ejs %>
+
+<div class="container-fluid">
+
+   <form name="form1" method="post" action="/customers/<%=data.customerId%>/contacts/<%=data.id%>" class="form-group" onsubmit="validateForm(document.form1)">
+      <table cellpadding="11">
+         <tr>
+            <td>Fist Name</td>
+            <td><input class="form-control"  type="text" name="firstName" value="<%=data.firstName%>" required></td>
+         </tr>
+         <tr>
+            <td>Last Name</td>
+            <td><input class="form-control"  type="text" name="lastName" value="<%=data.lastName%>" required></td>
+         </tr>
+         <tr>
+            <td>Unit No</td>
+            <td><input class="form-control"  type="text" name="unitNo" value="<%=data.unitNo%>"></td>
+         </tr>
+         <tr>
+            <td>Street No</td>
+            <td><input class="form-control"  type="text" name="streetNo" value="<%=data.streetNo%>" required></td>
+         </tr>
+         <tr>
+            <td>Street</td>
+            <td><input class="form-control"  type="text" name="street" value="<%=data.street%>" required> </textarea></td>
+         </tr>
+         <tr>
+            <td>City</td>
+            <td><input class="form-control"  type="text" name="city" value="<%=data.city%>" required> </textarea></td>
+         </tr>
+         <tr>
+            <td>Province</td>
+            <td><input class="form-control"  type="text" name="province" value="<%=data.province%>" required> </textarea></td>
+         </tr>
+         <tr>
+            <td>Postal Code</td>
+            <td><input class="form-control"  type="text" name="postalCode" value="<%=data.postalCode%>" required> </textarea></td>
+         </tr>
+         <tr>
+            <td>Email</td>
+            <td><input class="form-control"  type="text" name="email" value="<%=data.email%>" required></td>
+         </tr>
+         <tr>
+            <td>Phone</td>
+            <td><input class="form-control"  type="text" name="phone" value="<%=data.phone%>" required></td>
+         </tr>
+         <tr>
+            <td>Mobile Phone</td>
+            <td><input class="form-control"  type="text" name="mobile" value="<%=data.mobile%>"></td>
+         </tr>
+         <tr>
+            <td>Salary</td>
+            <td><input class="form-control" type="text" name="salary" value="<%=data.salary%>" required></td>
+         </tr>
+         <tr>
+            <td>Division</td>
+            <td><input class="form-control" type="text" name="division" value="<%=data.division%>" required></td>
+         </tr>
+      </table>
+      <br>
+      <input class="btn btn-primary" type="submit" name="submit" value="Save"> 
+      <input class="btn btn-primary" type="button" name="cancel" value="Cancel" onClick="window.location.href='/customers/<%=data.customerId%>/customercontacts'">
+   </form>
+
+</div>
+
+<%- include ../common/footer.ejs %>

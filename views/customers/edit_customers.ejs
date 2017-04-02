@@ -1,0 +1,55 @@
+<%- include ../common/formheader.ejs %>
+
+<div class="container-fluid">
+
+   <form name="form1" method="post" action="/customers/<%=data.id%>" class="form-group" onsubmit="validateForm(document.form1)">
+      <table cellpadding="11">
+         <tr>
+            <td>Name</td>
+            <td><input class="form-control"  type="text" name="name" value="<%=data.name%>" required></td>
+         </tr>
+         <tr>
+            <td>Unit No</td>
+            <td><input class="form-control"  type="text" name="unitNo" value="<%=data.unitNo%>"></td>
+         </tr>
+         <tr>
+            <td>Street No</td>
+            <td><input class="form-control"  type="text" name="streetNo" value="<%=data.streetNo%>" required></td>
+         </tr>
+         <tr>
+            <td>Street</td>
+            <td><input class="form-control"  type="text" name="street" value="<%=data.street%>" required> </textarea></td>
+         </tr>
+         <tr>
+            <td>City</td>
+            <td><input class="form-control"  type="text" name="city" value="<%=data.city%>" required> </textarea></td>
+         </tr>
+         <tr>
+            <td>Province</td>
+            <td><input class="form-control"  type="text" name="province" value="<%=data.province%>" required> </textarea></td>
+         </tr>
+         <tr>
+            <td>Postal Code</td>
+            <td><input class="form-control"  type="text" name="postalCode" value="<%=data.postalCode%>" required> </textarea></td>
+         </tr>
+         <tr>
+            <td>Email</td>
+            <td><input class="form-control"  type="text" name="email" value="<%=data.email%>" required></td>
+         </tr>
+         <tr>
+            <td>Phone</td>
+            <td><input class="form-control"  type="text" name="phone" value="<%=data.phone%>" required></td>
+         </tr>
+         <tr>
+            <td>Fax</td>
+            <td><input class="form-control"  type="text" name="fax" value="<%=data.fax%>"></td>
+         </tr>
+      </table>
+      <br>
+      <input class="btn btn-primary" type="submit" name="submit" value="Save">
+      <input type="button" name="cancel" value="Cancel" class="btn btn-primary" onClick="cancelAddCustomer()">
+   </form>
+
+</div>
+
+<%- include ../common/footer.ejs %>

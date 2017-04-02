@@ -1,0 +1,67 @@
+<%- include ../common/formheader.ejs %>
+
+<div class="container-fluid">
+
+   <form name="form1" method="post" action="/customers/<%=customerId%>/contacts" class="form-group" onsubmit="validateForm(document.form1)">
+      <table cellpadding="11">
+         <tr>
+            <td>First Name</td>
+            <td><input class="form-control" type="text" name="firstName" required></td>
+         </tr>
+         <tr>
+            <td>Last Name</td>
+            <td><input class="form-control" type="text" name="lastName" required></td>
+         </tr>
+         <tr>
+            <td>Unit No</td>
+            <td><input class="form-control" type="text" name="unitNo"></td>
+         </tr>
+         <tr>
+            <td>Street No</td>
+            <td><input class="form-control" type="text" name="streetNo" required></td>
+         </tr>
+         <tr>
+            <td>Street</td>
+            <td><input class="form-control" type="text" name="street" required> </textarea></td>
+         </tr>
+         <tr>
+            <td>City</td>
+            <td><input class="form-control" type="text" name="city" required> </textarea></td>
+         </tr>
+         <tr>
+            <td>Province</td>
+            <td><input class="form-control" type="text" name="province" required> </textarea></td>
+         </tr>
+         <tr>
+            <td>Postal Code</td>
+            <td><input class="form-control" type="text" name="postalCode" required> </textarea></td>
+         </tr>
+         <tr>
+            <td>Email</td>
+            <td><input class="form-control" type="text" name="email" required></td>
+         </tr>
+         <tr>
+            <td>Phone</td>
+            <td><input class="form-control" type="text" name="phone" required></td>
+         </tr>
+         <tr>
+            <td>Mobile Phone</td>
+            <td><input class="form-control" type="text" name="mobile"></td>
+         </tr>
+         <tr>
+            <td>Salary</td>
+            <td><input class="form-control" type="text" name="salary" required></td>
+         </tr>
+         <tr>
+            <td>Division</td>
+            <td><input class="form-control" type="text" name="division" required></td>
+         </tr>
+      </table>
+      <br> 
+      <input class="btn btn-primary" type="submit" name="submit" value="Save"> 
+      <input class="btn btn-primary" type="button" name="cancel" value="Cancel" onClick="window.location.href='/customers/<%=customerId%>/customercontacts'">
+   </form>
+
+</div>
+
+<%- include ../common/footer.ejs %>

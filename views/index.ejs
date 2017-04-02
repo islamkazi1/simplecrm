@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title><%= title %></title>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/dist/bootstrap-3.3.7/css/bootstrap.min.css">
+<link rel="icon" href="../images/favicon.ico">
+</head>
+<body>
+
+   <div class="container-fluid">
+      <div class="jumbotron">
+         <h1 class="display-3">Simple CRM</h1>
+         <p class="lead">This is a simple crm application</p>
+         <p class="lead">
+            <a class="btn btn-primary btn-lg" href="/customers" role="button">Get Started</a>
+         </p>
+      </div>
+   </div>
+
+   <%- include ./common/footer.ejs %>

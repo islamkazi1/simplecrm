@@ -1,0 +1,54 @@
+<%- include ../common/commonheader.ejs %>
+<div class="container-fluid">
+
+   <a href="../<%=customerId%>/contacts/add" class="btn btn-primary" data-toggle="tooltip" title="Add Contact"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+
+   <table class="table table-striped">
+      <thead>
+         <tr>
+            <th width="50px">No</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Salary</th>
+            <th>Division</th>
+            <th>Phone</th>
+            <th>Mobile</th>
+            <th>Email</th>
+            <th width="220px" align="center">Action</th>
+         </tr>
+      </thead>
+
+      <tbody>
+         <% if(data.length){ for(var i = 0;i < data.length;i++) { 
+         var unit = "";
+         if(data[i].unitNo != null && data[i].unitNo.length!=0){
+            unit = data[i].unitNo+"-";
+          }
+         %>
+
+         <tr>
+            <td><%=(i+1)%></td>
+            <td><%=data[i].firstName + " " + data[i].lastName%></td>
+            <td><%=unit+data[i].streetNo +" "+data[i].street+","+data[i].city+","+data[i].province+","+data[i].postalCode%></td>
+            <td><%=data[i].salary%></td>
+            <td><%=data[i].division%></td>
+            <td><%=data[i].phone%></td>
+            <td><%=data[i].mobile%></td>
+            <td><%=data[i].email%></td>
+            <td>
+               <a href="../<%=data[i].customerId%>/contacts/edit/<%=data[i].id%>" class="btn btn-primary" data-toggle="tooltip" title="Edit"> <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a> 
+               <a href="../<%=data[i].customerId%>/contacts/delete/<%=data[i].id%>" class="btn btn-primary" data-toggle="tooltip" title="Delete" onclick="return confirmAction()"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+            </td>
+         </tr>
+         <% } }else{ %>
+         <tr>
+            <td colspan="3">No Customer</td>
+         </tr>
+         <% } %>
+
+      </tbody>
+
+   </table>
+
+</div>
+<%- include ../common/footer.ejs %>
