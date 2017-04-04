@@ -67,9 +67,21 @@ router.get("/edit/:id",function(req, res, next){
 router.post("/:id", function(req, res, next) {
     var customer = req.body;
     models.customer.findById(req.params.id).then(function(oldcustomer) {
-	oldcustomer.update(customer);
+	var promise = new Promise(function(resolve,reject){
+	    oldcustomer.update(customer)
+	    .then(function(){
+		resolve(true);
+	    })
+	    .catch(function(errors){
+		reject(errors);
+	    });	    
+	});
+	return promise;
+    })
+    .then(function(){
 	res.redirect('/customers');
-    }).catch(function(errors) {
+    })
+    .catch(function(errors) {
 	res.status(500).send({
 	    message: "Failed to perform the operation",
 	    error: errors

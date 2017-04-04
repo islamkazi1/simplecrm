@@ -24,7 +24,10 @@ module.exports = function(sequelize, DataTypes) {
         },
         streetNo: {
             type: DataTypes.STRING,
-            field: "street_no"
+            field: "street_no",
+            validate : {
+		isNumeric : true
+	    }
         },
         street: {
             type: DataTypes.STRING

@@ -6,10 +6,21 @@ var models = require("../models");
 router.post("/:contactId", function(req, res, next) {
     var contact = req.body;
 
-    models.contact.findById(req.params.contactId).then(function(oldcontact) {
-	oldcontact.update(contact).then(function(){
-	    res.redirect('/customers/'+oldcontact.customerId+'/customercontacts');
+    models.contact.findById(req.params.contactId)
+    .then(function(oldcontact) {
+	var promise = new Promise(function(resolve, reject) {
+	    // do a thing, possibly async, then…
+	    oldcontact.update(contact)
+	    .then(function(){
+		resolve(oldcontact.customerId);
+	    })
+	    .catch(function(errors){reject(errors);});
+
 	});
+	return promise;
+    })
+    .then(function(customerId){
+	res.redirect('/customers/'+customerId+'/customercontacts');
     }).catch(function(errors) {
 	res.status(500).send({
 	    message: "Failed to perform the operation",
@@ -53,11 +64,11 @@ router.get("/delete/:contactId", function(req,res,nest){
 	res.redirect('/customers/'+req.params.id+'/customercontacts');
     }).catch(function(errors) {
 	res.status(500).send({
-            message: "Failed to perform the operation",
-            error: errors
-        });
+	    message: "Failed to perform the operation",
+	    error: errors
+	});
     });
-    
+
 });
 
 module.exports = router;
