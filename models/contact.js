@@ -58,7 +58,10 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING
         },
         salary: {
-            type: DataTypes.DOUBLE
+            type: DataTypes.DOUBLE,
+            validate:{
+        	isDecimal: true
+            }
         }
     }, {
         createdAt: 'created_date',
